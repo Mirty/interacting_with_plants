@@ -1,0 +1,496 @@
+-Button Accordion samples
+Button Accordion samples/bac chrd A0.wav
+Button Accordion samples/bac chrd A1.wav
+Button Accordion samples/bac chrd B1.wav
+Button Accordion samples/bac chrd C0.wav
+Button Accordion samples/bac chrd C2.wav
+Button Accordion samples/bac chrd D0.wav
+Button Accordion samples/bac chrd E0.wav
+Button Accordion samples/bac chrd F0.wav
+Button Accordion samples/bac chrd F1.wav
+Button Accordion samples/bac chrd G#1.wav
+Button Accordion samples/bac chrd G0.wav
+Button Accordion samples/bac mel A#4.wav
+Button Accordion samples/bac mel A2.wav
+Button Accordion samples/bac mel A3.wav
+Button Accordion samples/bac mel B4.wav
+Button Accordion samples/bac mel C#5.wav
+Button Accordion samples/bac mel C3.wav
+Button Accordion samples/bac mel C4.wav
+Button Accordion samples/bac mel C5.wav
+Button Accordion samples/bac mel D#2.wav
+Button Accordion samples/bac mel D#3.wav
+Button Accordion samples/bac mel D#4.wav
+Button Accordion samples/bac mel E5.wav
+Button Accordion samples/bac mel F#2.wav
+Button Accordion samples/bac mel F#3.wav
+Button Accordion samples/bac mel F#5.wav
+Button Accordion samples/bac mel F4.wav
+Button Accordion samples/bac mel G4.wav
+-Charpa
+Charpa/CHARPA#1.wav
+Charpa/CHARPA#4.wav
+Charpa/CHARPB5.wav
+Charpa/CHARPC#3.wav
+Charpa/CHARPC#4.wav
+Charpa/CHARPC#5.wav
+Charpa/CHARPD#4.wav
+Charpa/CHARPD#7.wav
+Charpa/CHARPF#3.wav
+Charpa/CHARPF#5.wav
+Charpa/CHARPF#7.wav
+Charpa/CHARPG#2.wav
+Charpa/CHARPG#3.wav
+Charpa/CHARPG#4.wav
+-Granular Bottle Samples
+Granular Bottle Samples/BT9SPR.wav
+Granular Bottle Samples/BTLE_1.wav
+Granular Bottle Samples/BTLE_7B.wav
+-Harmonica samples
+Harmonica samples/harmnc vibA2.wav
+Harmonica samples/harmnc vibA3.wav
+Harmonica samples/harmnc vibA4.wav
+Harmonica samples/harmnc vibA5.wav
+Harmonica samples/harmnc vibB2.wav
+Harmonica samples/harmnc vibB3.wav
+Harmonica samples/harmnc vibB4.wav
+Harmonica samples/harmnc vibC#3.wav
+Harmonica samples/harmnc vibC#4.wav
+Harmonica samples/harmnc vibC#5.wav
+Harmonica samples/harmnc vibD4.wav
+Harmonica samples/harmnc vibD5.wav
+Harmonica samples/harmnc vibE3.wav
+Harmonica samples/harmnc vibE4.wav
+Harmonica samples/harmnc vibE5.wav
+Harmonica samples/harmnc vibF#4.wav
+Harmonica samples/harmnc vibF#5.wav
+Harmonica samples/harmnc vibG#3.wav
+Harmonica samples/harmnc vibG#4.wav
+Harmonica samples/hrmnca novbA2.wav
+Harmonica samples/hrmnca novbA3.wav
+Harmonica samples/hrmnca novbA4.wav
+Harmonica samples/hrmnca novbA5.wav
+Harmonica samples/hrmnca novbB2.wav
+Harmonica samples/hrmnca novbB3.wav
+Harmonica samples/hrmnca novbB4.wav
+Harmonica samples/hrmnca novbC#3.wav
+Harmonica samples/hrmnca novbC#4.wav
+Harmonica samples/hrmnca novbC#5.wav
+Harmonica samples/hrmnca novbD4.wav
+Harmonica samples/hrmnca novbD5.wav
+Harmonica samples/hrmnca novbE3.wav
+Harmonica samples/hrmnca novbE4.wav
+Harmonica samples/hrmnca novbE5.wav
+Harmonica samples/hrmnca novbF#4.wav
+Harmonica samples/hrmnca novbF#5.wav
+Harmonica samples/hrmnca novbG#3.wav
+Harmonica samples/hrmnca novbG#4.wav
+-Mini Sax samples
+Mini Sax samples/msax novbA#20003.wav
+Mini Sax samples/msax novbA#20015.wav
+Mini Sax samples/msax novbA#20016.wav
+Mini Sax samples/msax novbA#30002.wav
+Mini Sax samples/msax novbA#30006.wav
+Mini Sax samples/msax novbA#30013.wav
+Mini Sax samples/msax novbA30001.wav
+Mini Sax samples/msax novbC30009.wav
+Mini Sax samples/msax novbC30012.wav
+Mini Sax samples/msax novbD#30007.wav
+Mini Sax samples/msax novbD#30011.wav
+Mini Sax samples/msax novbD30005.wav
+Mini Sax samples/msax novbF30010.wav
+Mini Sax samples/msax novbF30014.wav
+Mini Sax samples/msax novbG30004.wav
+Mini Sax samples/msax novbG30008.wav
+Mini Sax samples/msax vbA#20002.wav
+Mini Sax samples/msax vbA#20004.wav
+Mini Sax samples/msax vbA#20014.wav
+Mini Sax samples/msax vbA#30001.wav
+Mini Sax samples/msax vbA#30008.wav
+Mini Sax samples/msax vbA#30016.wav
+Mini Sax samples/msax vbA30009.wav
+Mini Sax samples/msax vbA30023.wav
+Mini Sax samples/msax vbB30005.wav
+Mini Sax samples/msax vbB30013.wav
+Mini Sax samples/msax vbC#40003.wav
+Mini Sax samples/msax vbC#40022.wav
+Mini Sax samples/msax vbC30006.wav
+Mini Sax samples/msax vbC30019.wav
+Mini Sax samples/msax vbC40018.wav
+Mini Sax samples/msax vbC40020.wav
+Mini Sax samples/msax vbD#30007.wav
+Mini Sax samples/msax vbD30021.wav
+Mini Sax samples/msax vbD30024.wav
+Mini Sax samples/msax vbD40011.wav
+Mini Sax samples/msax vbF30010.wav
+Mini Sax samples/msax vbF30015.wav
+Mini Sax samples/msax vbG30012.wav
+Mini Sax samples/msax vbG30017.wav
+-Psaltery samples
+Psaltery samples/ps dnA3.wav
+Psaltery samples/ps dnA4.wav
+Psaltery samples/ps dnB3.wav
+Psaltery samples/ps dnB4.wav
+Psaltery samples/ps dnC3b.wav
+Psaltery samples/ps dnC4.wav
+Psaltery samples/ps dnD#5.wav
+Psaltery samples/ps dnD3.wav
+Psaltery samples/ps dnD4.wav
+Psaltery samples/ps dnD5.wav
+Psaltery samples/ps dnE3.wav
+Psaltery samples/ps dnE4.wav
+Psaltery samples/ps dnF3.wav
+Psaltery samples/ps dnF5.wav
+Psaltery samples/ps dnG3.wav
+Psaltery samples/ps dnG4.wav
+-Soprano Bari Marimba samples
+Soprano Bari Marimba samples/Baritone Marimba43 2.wav
+Soprano Bari Marimba samples/Baritone Marimba43 3.wav
+Soprano Bari Marimba samples/Baritone Marimba43 4.wav
+Soprano Bari Marimba samples/Baritone Marimba43 5.wav
+Soprano Bari Marimba samples/Baritone Marimba43 6.wav
+Soprano Bari Marimba samples/Baritone Marimba43.wav
+Soprano Bari Marimba samples/Baritone Marimba45 2.wav
+Soprano Bari Marimba samples/Baritone Marimba45 3.wav
+Soprano Bari Marimba samples/Baritone Marimba45 4.wav
+Soprano Bari Marimba samples/Baritone Marimba45 5.wav
+Soprano Bari Marimba samples/Baritone Marimba45 6.wav
+Soprano Bari Marimba samples/Baritone Marimba45.wav
+Soprano Bari Marimba samples/Baritone Marimba47 2.wav
+Soprano Bari Marimba samples/Baritone Marimba47 3.wav
+Soprano Bari Marimba samples/Baritone Marimba47 4.wav
+Soprano Bari Marimba samples/Baritone Marimba47 5.wav
+Soprano Bari Marimba samples/Baritone Marimba47 6.wav
+Soprano Bari Marimba samples/Baritone Marimba47 7.wav
+Soprano Bari Marimba samples/Baritone Marimba47.wav
+Soprano Bari Marimba samples/Baritone Marimba48 2.wav
+Soprano Bari Marimba samples/Baritone Marimba48 3.wav
+Soprano Bari Marimba samples/Baritone Marimba48 4.wav
+Soprano Bari Marimba samples/Baritone Marimba48 5.wav
+Soprano Bari Marimba samples/Baritone Marimba48 6.wav
+Soprano Bari Marimba samples/Baritone Marimba48 7.wav
+Soprano Bari Marimba samples/Baritone Marimba48 8.wav
+Soprano Bari Marimba samples/Baritone Marimba48.wav
+Soprano Bari Marimba samples/Baritone Marimba50 2.wav
+Soprano Bari Marimba samples/Baritone Marimba50 3.wav
+Soprano Bari Marimba samples/Baritone Marimba50 4.wav
+Soprano Bari Marimba samples/Baritone Marimba50 5.wav
+Soprano Bari Marimba samples/Baritone Marimba50 6.wav
+Soprano Bari Marimba samples/Baritone Marimba50 7.wav
+Soprano Bari Marimba samples/Baritone Marimba50 8.wav
+Soprano Bari Marimba samples/Baritone Marimba50 9.wav
+Soprano Bari Marimba samples/Baritone Marimba50.wav
+Soprano Bari Marimba samples/Baritone Marimba52 2.wav
+Soprano Bari Marimba samples/Baritone Marimba52 3.wav
+Soprano Bari Marimba samples/Baritone Marimba52 4.wav
+Soprano Bari Marimba samples/Baritone Marimba52 5.wav
+Soprano Bari Marimba samples/Baritone Marimba52 6.wav
+Soprano Bari Marimba samples/Baritone Marimba52 7.wav
+Soprano Bari Marimba samples/Baritone Marimba52.wav
+Soprano Bari Marimba samples/Baritone Marimba53 2.wav
+Soprano Bari Marimba samples/Baritone Marimba53 3.wav
+Soprano Bari Marimba samples/Baritone Marimba53 4.wav
+Soprano Bari Marimba samples/Baritone Marimba53 5.wav
+Soprano Bari Marimba samples/Baritone Marimba53 6.wav
+Soprano Bari Marimba samples/Baritone Marimba53 7.wav
+Soprano Bari Marimba samples/Baritone Marimba53.wav
+Soprano Bari Marimba samples/Baritone Marimba55 2.wav
+Soprano Bari Marimba samples/Baritone Marimba55 3.wav
+Soprano Bari Marimba samples/Baritone Marimba55 4.wav
+Soprano Bari Marimba samples/Baritone Marimba55 5.wav
+Soprano Bari Marimba samples/Baritone Marimba55 6.wav
+Soprano Bari Marimba samples/Baritone Marimba55 7.wav
+Soprano Bari Marimba samples/Baritone Marimba55 8.wav
+Soprano Bari Marimba samples/Baritone Marimba55.wav
+Soprano Bari Marimba samples/Baritone Marimba57 2.wav
+Soprano Bari Marimba samples/Baritone Marimba57 3.wav
+Soprano Bari Marimba samples/Baritone Marimba57 4.wav
+Soprano Bari Marimba samples/Baritone Marimba57 5.wav
+Soprano Bari Marimba samples/Baritone Marimba57 6.wav
+Soprano Bari Marimba samples/Baritone Marimba57 7.wav
+Soprano Bari Marimba samples/Baritone Marimba57.wav
+Soprano Bari Marimba samples/Baritone Marimba59 2.wav
+Soprano Bari Marimba samples/Baritone Marimba59 3.wav
+Soprano Bari Marimba samples/Baritone Marimba59 4.wav
+Soprano Bari Marimba samples/Baritone Marimba59 5.wav
+Soprano Bari Marimba samples/Baritone Marimba59 6.wav
+Soprano Bari Marimba samples/Baritone Marimba59.wav
+Soprano Bari Marimba samples/Baritone Marimba60 10.wav
+Soprano Bari Marimba samples/Baritone Marimba60 11.wav
+Soprano Bari Marimba samples/Baritone Marimba60 2.wav
+Soprano Bari Marimba samples/Baritone Marimba60 3.wav
+Soprano Bari Marimba samples/Baritone Marimba60 4.wav
+Soprano Bari Marimba samples/Baritone Marimba60 5.wav
+Soprano Bari Marimba samples/Baritone Marimba60 6.wav
+Soprano Bari Marimba samples/Baritone Marimba60 7.wav
+Soprano Bari Marimba samples/Baritone Marimba60 8.wav
+Soprano Bari Marimba samples/Baritone Marimba60 9.wav
+Soprano Bari Marimba samples/Baritone Marimba60.wav
+Soprano Bari Marimba samples/Baritone Marimba62 2.wav
+Soprano Bari Marimba samples/Baritone Marimba62 3.wav
+Soprano Bari Marimba samples/Baritone Marimba62 4.wav
+Soprano Bari Marimba samples/Baritone Marimba62 5.wav
+Soprano Bari Marimba samples/Baritone Marimba62.wav
+Soprano Bari Marimba samples/Baritone Marimba64 2.wav
+Soprano Bari Marimba samples/Baritone Marimba64 3.wav
+Soprano Bari Marimba samples/Baritone Marimba64 4.wav
+Soprano Bari Marimba samples/Baritone Marimba64 5.wav
+Soprano Bari Marimba samples/Baritone Marimba64 6.wav
+Soprano Bari Marimba samples/Baritone Marimba64.wav
+Soprano Bari Marimba samples/Baritone Marimba65 2.wav
+Soprano Bari Marimba samples/Baritone Marimba65 3.wav
+Soprano Bari Marimba samples/Baritone Marimba65 4.wav
+Soprano Bari Marimba samples/Baritone Marimba65 5.wav
+Soprano Bari Marimba samples/Baritone Marimba65 6.wav
+Soprano Bari Marimba samples/Baritone Marimba65.wav
+Soprano Bari Marimba samples/Baritone Marimba66 2.wav
+Soprano Bari Marimba samples/Baritone Marimba66 3.wav
+Soprano Bari Marimba samples/Baritone Marimba66 4.wav
+Soprano Bari Marimba samples/Baritone Marimba66 5.wav
+Soprano Bari Marimba samples/Baritone Marimba66 6.wav
+Soprano Bari Marimba samples/Baritone Marimba66.wav
+Soprano Bari Marimba samples/Baritone Marimba67 2.wav
+Soprano Bari Marimba samples/Baritone Marimba67 3.wav
+Soprano Bari Marimba samples/Baritone Marimba67 4.wav
+Soprano Bari Marimba samples/Baritone Marimba67 5.wav
+Soprano Bari Marimba samples/Baritone Marimba67.wav
+Soprano Bari Marimba samples/Soprano Marimba60 2.wav
+Soprano Bari Marimba samples/Soprano Marimba60 3.wav
+Soprano Bari Marimba samples/Soprano Marimba60.wav
+Soprano Bari Marimba samples/Soprano Marimba62 2.wav
+Soprano Bari Marimba samples/Soprano Marimba62 3.wav
+Soprano Bari Marimba samples/Soprano Marimba62 4.wav
+Soprano Bari Marimba samples/Soprano Marimba62.wav
+Soprano Bari Marimba samples/Soprano Marimba64 2.wav
+Soprano Bari Marimba samples/Soprano Marimba64 3.wav
+Soprano Bari Marimba samples/Soprano Marimba64 4.wav
+Soprano Bari Marimba samples/Soprano Marimba64 5.wav
+Soprano Bari Marimba samples/Soprano Marimba64 6.wav
+Soprano Bari Marimba samples/Soprano Marimba64.wav
+Soprano Bari Marimba samples/Soprano Marimba65 2.wav
+Soprano Bari Marimba samples/Soprano Marimba65 3.wav
+Soprano Bari Marimba samples/Soprano Marimba65 4.wav
+Soprano Bari Marimba samples/Soprano Marimba65 5.wav
+Soprano Bari Marimba samples/Soprano Marimba65 6.wav
+Soprano Bari Marimba samples/Soprano Marimba65.wav
+Soprano Bari Marimba samples/Soprano Marimba66 2.wav
+Soprano Bari Marimba samples/Soprano Marimba66 3.wav
+Soprano Bari Marimba samples/Soprano Marimba66 4.wav
+Soprano Bari Marimba samples/Soprano Marimba66 5.wav
+Soprano Bari Marimba samples/Soprano Marimba66 6.wav
+Soprano Bari Marimba samples/Soprano Marimba66 7.wav
+Soprano Bari Marimba samples/Soprano Marimba66 8.wav
+Soprano Bari Marimba samples/Soprano Marimba66 9.wav
+Soprano Bari Marimba samples/Soprano Marimba66.wav
+Soprano Bari Marimba samples/Soprano Marimba67 2.wav
+Soprano Bari Marimba samples/Soprano Marimba67 3.wav
+Soprano Bari Marimba samples/Soprano Marimba67 4.wav
+Soprano Bari Marimba samples/Soprano Marimba67 5.wav
+Soprano Bari Marimba samples/Soprano Marimba67 6.wav
+Soprano Bari Marimba samples/Soprano Marimba67.wav
+Soprano Bari Marimba samples/Soprano Marimba69 2.wav
+Soprano Bari Marimba samples/Soprano Marimba69 3.wav
+Soprano Bari Marimba samples/Soprano Marimba69 4.wav
+Soprano Bari Marimba samples/Soprano Marimba69 5.wav
+Soprano Bari Marimba samples/Soprano Marimba69.wav
+Soprano Bari Marimba samples/Soprano Marimba71 2.wav
+Soprano Bari Marimba samples/Soprano Marimba71 3.wav
+Soprano Bari Marimba samples/Soprano Marimba71 4.wav
+Soprano Bari Marimba samples/Soprano Marimba71 5.wav
+Soprano Bari Marimba samples/Soprano Marimba71 6.wav
+Soprano Bari Marimba samples/Soprano Marimba71 7.wav
+Soprano Bari Marimba samples/Soprano Marimba71.wav
+Soprano Bari Marimba samples/Soprano Marimba72 2.wav
+Soprano Bari Marimba samples/Soprano Marimba72 3.wav
+Soprano Bari Marimba samples/Soprano Marimba72 4.wav
+Soprano Bari Marimba samples/Soprano Marimba72 5.wav
+Soprano Bari Marimba samples/Soprano Marimba72 6.wav
+Soprano Bari Marimba samples/Soprano Marimba72.wav
+Soprano Bari Marimba samples/Soprano Marimba74 2.wav
+Soprano Bari Marimba samples/Soprano Marimba74 3.wav
+Soprano Bari Marimba samples/Soprano Marimba74 4.wav
+Soprano Bari Marimba samples/Soprano Marimba74 5.wav
+Soprano Bari Marimba samples/Soprano Marimba74 6.wav
+Soprano Bari Marimba samples/Soprano Marimba74 7.wav
+Soprano Bari Marimba samples/Soprano Marimba74.wav
+Soprano Bari Marimba samples/Soprano Marimba76 2.wav
+Soprano Bari Marimba samples/Soprano Marimba76 3.wav
+Soprano Bari Marimba samples/Soprano Marimba76 4.wav
+Soprano Bari Marimba samples/Soprano Marimba76 5.wav
+Soprano Bari Marimba samples/Soprano Marimba76 6.wav
+Soprano Bari Marimba samples/Soprano Marimba76 7.wav
+Soprano Bari Marimba samples/Soprano Marimba76 8.wav
+Soprano Bari Marimba samples/Soprano Marimba76.wav
+Soprano Bari Marimba samples/Soprano Marimba77 2.wav
+Soprano Bari Marimba samples/Soprano Marimba77 3.wav
+Soprano Bari Marimba samples/Soprano Marimba77 4.wav
+Soprano Bari Marimba samples/Soprano Marimba77 5.wav
+Soprano Bari Marimba samples/Soprano Marimba77 6.wav
+Soprano Bari Marimba samples/Soprano Marimba77 7.wav
+Soprano Bari Marimba samples/Soprano Marimba77.wav
+Soprano Bari Marimba samples/Soprano Marimba78 2.wav
+Soprano Bari Marimba samples/Soprano Marimba78 3.wav
+Soprano Bari Marimba samples/Soprano Marimba78 4.wav
+Soprano Bari Marimba samples/Soprano Marimba78 5.wav
+Soprano Bari Marimba samples/Soprano Marimba78 6.wav
+Soprano Bari Marimba samples/Soprano Marimba78 7.wav
+Soprano Bari Marimba samples/Soprano Marimba78.wav
+Soprano Bari Marimba samples/Soprano Marimba79 2.wav
+Soprano Bari Marimba samples/Soprano Marimba79 3.wav
+Soprano Bari Marimba samples/Soprano Marimba79 4.wav
+Soprano Bari Marimba samples/Soprano Marimba79 5.wav
+Soprano Bari Marimba samples/Soprano Marimba79 6.wav
+Soprano Bari Marimba samples/Soprano Marimba79.wav
+Soprano Bari Marimba samples/Soprano Marimba81 2.wav
+Soprano Bari Marimba samples/Soprano Marimba81 3.wav
+Soprano Bari Marimba samples/Soprano Marimba81 4.wav
+Soprano Bari Marimba samples/Soprano Marimba81 5.wav
+Soprano Bari Marimba samples/Soprano Marimba81 6.wav
+Soprano Bari Marimba samples/Soprano Marimba81.wav
+Soprano Bari Marimba samples/Soprano Marimba83 2.wav
+Soprano Bari Marimba samples/Soprano Marimba83 3.wav
+Soprano Bari Marimba samples/Soprano Marimba83 4.wav
+Soprano Bari Marimba samples/Soprano Marimba83 5.wav
+Soprano Bari Marimba samples/Soprano Marimba83 6.wav
+Soprano Bari Marimba samples/Soprano Marimba83.wav
+Soprano Bari Marimba samples/Soprano Marimba84 2.wav
+Soprano Bari Marimba samples/Soprano Marimba84 3.wav
+Soprano Bari Marimba samples/Soprano Marimba84 4.wav
+Soprano Bari Marimba samples/Soprano Marimba84 5.wav
+Soprano Bari Marimba samples/Soprano Marimba84 6.wav
+Soprano Bari Marimba samples/Soprano Marimba84.wav
+-Thumb Piano samples
+Thumb Piano samples/TP flesh-Cyc00A2-RQAX.wav
+Thumb Piano samples/TP flesh-Cyc00A3-MC74.wav
+Thumb Piano samples/TP flesh-Cyc00B2-K6W6.wav
+Thumb Piano samples/TP flesh-Cyc00B3-3EZ3.wav
+Thumb Piano samples/TP flesh-Cyc00C2-0W62.wav
+Thumb Piano samples/TP flesh-Cyc00C3-M3CH.wav
+Thumb Piano samples/TP flesh-Cyc00C4-7IOS.wav
+Thumb Piano samples/TP flesh-Cyc00D2-1054.wav
+Thumb Piano samples/TP flesh-Cyc00D3-UJ79.wav
+Thumb Piano samples/TP flesh-Cyc00D4-AB8X.wav
+Thumb Piano samples/TP flesh-Cyc00E2-B8S4.wav
+Thumb Piano samples/TP flesh-Cyc00E3-N03Z.wav
+Thumb Piano samples/TP flesh-Cyc00E4-S2ZE.wav
+Thumb Piano samples/TP flesh-Cyc00F2-I799.wav
+Thumb Piano samples/TP flesh-Cyc00F3-08MJ.wav
+Thumb Piano samples/TP flesh-Cyc00G2-ZLJ4.wav
+Thumb Piano samples/TP flesh-Cyc00G3-4Q56.wav
+Thumb Piano samples/TP flesh-Cyc01A2-HWX2.wav
+Thumb Piano samples/TP flesh-Cyc01A3-E1DS.wav
+Thumb Piano samples/TP flesh-Cyc01B2-UMZ4.wav
+Thumb Piano samples/TP flesh-Cyc01B3-IGDI.wav
+Thumb Piano samples/TP flesh-Cyc01C2-SIQG.wav
+Thumb Piano samples/TP flesh-Cyc01C3-UDBZ.wav
+Thumb Piano samples/TP flesh-Cyc01C4-8MKX.wav
+Thumb Piano samples/TP flesh-Cyc01D2-QX20.wav
+Thumb Piano samples/TP flesh-Cyc01D3-1DF0.wav
+Thumb Piano samples/TP flesh-Cyc01D4-8KIT.wav
+Thumb Piano samples/TP flesh-Cyc01E2-U612.wav
+Thumb Piano samples/TP flesh-Cyc01E3-AF0R.wav
+Thumb Piano samples/TP flesh-Cyc01E4-PX00.wav
+Thumb Piano samples/TP flesh-Cyc01F2-RORX.wav
+Thumb Piano samples/TP flesh-Cyc01F3-IWA1.wav
+Thumb Piano samples/TP flesh-Cyc01G2-GS9T.wav
+Thumb Piano samples/TP flesh-Cyc01G3-H28Q.wav
+Thumb Piano samples/TP flesh-Cyc02A2-BF2C.wav
+Thumb Piano samples/TP flesh-Cyc02A3-NGEB.wav
+Thumb Piano samples/TP flesh-Cyc02B2-9CAJ.wav
+Thumb Piano samples/TP flesh-Cyc02B3-X00Y.wav
+Thumb Piano samples/TP flesh-Cyc02C2-PR0N.wav
+Thumb Piano samples/TP flesh-Cyc02C3-E8S2.wav
+Thumb Piano samples/TP flesh-Cyc02C4-3TLA.wav
+Thumb Piano samples/TP flesh-Cyc02D2-VOLR.wav
+Thumb Piano samples/TP flesh-Cyc02D3-HHU6.wav
+Thumb Piano samples/TP flesh-Cyc02D4-87GN.wav
+Thumb Piano samples/TP flesh-Cyc02E2-6XMF.wav
+Thumb Piano samples/TP flesh-Cyc02E3-QX2E.wav
+Thumb Piano samples/TP flesh-Cyc02E4-P0M0.wav
+Thumb Piano samples/TP flesh-Cyc02F2-RIYU.wav
+Thumb Piano samples/TP flesh-Cyc02F3-2TLO.wav
+Thumb Piano samples/TP flesh-Cyc02G2-YA6M.wav
+Thumb Piano samples/TP flesh-Cyc02G3-2IAR.wav
+Thumb Piano samples/TP nail-Cyc00A2-JPGT.wav
+Thumb Piano samples/TP nail-Cyc00A3-O0CY.wav
+Thumb Piano samples/TP nail-Cyc00B2-4SA3.wav
+Thumb Piano samples/TP nail-Cyc00B3-Q3YU.wav
+Thumb Piano samples/TP nail-Cyc00C2-29O3.wav
+Thumb Piano samples/TP nail-Cyc00C3-YNLX.wav
+Thumb Piano samples/TP nail-Cyc00C4-6VG1.wav
+Thumb Piano samples/TP nail-Cyc00D2-26BI.wav
+Thumb Piano samples/TP nail-Cyc00D3-KJYH.wav
+Thumb Piano samples/TP nail-Cyc00D4-IA0Y.wav
+Thumb Piano samples/TP nail-Cyc00E2-7O5I.wav
+Thumb Piano samples/TP nail-Cyc00E3-M74N.wav
+Thumb Piano samples/TP nail-Cyc00E4-VSOT.wav
+Thumb Piano samples/TP nail-Cyc00F2-4I6G.wav
+Thumb Piano samples/TP nail-Cyc00F3-I7BJ.wav
+Thumb Piano samples/TP nail-Cyc00G2-69G1.wav
+Thumb Piano samples/TP nail-Cyc00G3-XSWN.wav
+Thumb Piano samples/TP nail-Cyc01A2-K662.wav
+Thumb Piano samples/TP nail-Cyc01A3-P7BT.wav
+Thumb Piano samples/TP nail-Cyc01B2-QWG3.wav
+Thumb Piano samples/TP nail-Cyc01B3-N9M8.wav
+Thumb Piano samples/TP nail-Cyc01C2-AEOM.wav
+Thumb Piano samples/TP nail-Cyc01C3-31D2.wav
+Thumb Piano samples/TP nail-Cyc01C4-ZFD3.wav
+Thumb Piano samples/TP nail-Cyc01D2-CHKH.wav
+Thumb Piano samples/TP nail-Cyc01D3-OIFI.wav
+Thumb Piano samples/TP nail-Cyc01D4-MKGB.wav
+Thumb Piano samples/TP nail-Cyc01E2-FZ6Z.wav
+Thumb Piano samples/TP nail-Cyc01E3-2KMM.wav
+Thumb Piano samples/TP nail-Cyc01E4-HXCY.wav
+Thumb Piano samples/TP nail-Cyc01F2-32KG.wav
+Thumb Piano samples/TP nail-Cyc01F3-ZCK4.wav
+Thumb Piano samples/TP nail-Cyc01G2-9I7X.wav
+Thumb Piano samples/TP nail-Cyc01G3-VXNV.wav
+Thumb Piano samples/TP nail-Cyc02A2-FKBX.wav
+Thumb Piano samples/TP nail-Cyc02A3-K3U7.wav
+Thumb Piano samples/TP nail-Cyc02B2-YASX.wav
+Thumb Piano samples/TP nail-Cyc02B3-2C5A.wav
+Thumb Piano samples/TP nail-Cyc02C2-KE1X.wav
+Thumb Piano samples/TP nail-Cyc02C3-95JY.wav
+Thumb Piano samples/TP nail-Cyc02C4-HCPU.wav
+Thumb Piano samples/TP nail-Cyc02D2-GP9F.wav
+Thumb Piano samples/TP nail-Cyc02D3-CABL.wav
+Thumb Piano samples/TP nail-Cyc02D4-F4IX.wav
+Thumb Piano samples/TP nail-Cyc02E2-01PC.wav
+Thumb Piano samples/TP nail-Cyc02E3-RC3D.wav
+Thumb Piano samples/TP nail-Cyc02E4-II1A.wav
+Thumb Piano samples/TP nail-Cyc02F2-GXGZ.wav
+Thumb Piano samples/TP nail-Cyc02F3-5R7T.wav
+Thumb Piano samples/TP nail-Cyc02G2-9F9Q.wav
+Thumb Piano samples/TP nail-Cyc02G3-ZWXH.wav
+-Xmas Granular samples
+Xmas Granular samples/100 grn.wav
+Xmas Granular samples/100 ht.wav
+Xmas Granular samples/84 hit.wav
+Xmas Granular samples/88 grn.wav
+Xmas Granular samples/88 ht.wav
+Xmas Granular samples/91 grn.wav
+Xmas Granular samples/91 ht.wav
+-Zither FREE samples
+Zither FREE samples/Zither Flesh Bass ce#002328.wav
+Zither FREE samples/Zither Flesh Bass ce#00232C.wav
+Zither FREE samples/Zither Flesh Bass ce#00232D.wav
+Zither FREE samples/Zither Flesh Bass ce#00232F.wav
+Zither FREE samples/Zither Flesh Bass ce#00233B.wav
+Zither FREE samples/Zither Flesh Bass ce#002340.wav
+Zither FREE samples/Zither Flesh Bass ce#002341.wav
+Zither FREE samples/Zither Flesh Bass ce#002342.wav
+Zither FREE samples/Zither Flesh Bass ce#002343.wav
+Zither FREE samples/Zither Flesh Bass ce#002344.wav
+Zither FREE samples/Zither vib Flesh Fin#0022DE.wav
+Zither FREE samples/Zither vib Flesh Fin#0022DF.wav
+Zither FREE samples/Zither vib Flesh Fin#0022E0.wav
+Zither FREE samples/Zither vib Flesh Fin#0022E3.wav
+Zither FREE samples/Zither vib Flesh Fin#0022EB.wav
+Zither FREE samples/Zither vib Flesh Fin#0022F1.wav
+Zither FREE samples/Zither vib Flesh Fin#0022F2.wav
+Zither FREE samples/Zither vib Flesh Fin#0022F3.wav
+Zither FREE samples/Zither vib Flesh Fin#0022F4.wav
+Zither FREE samples/Zither vib Flesh Fin#0022F6.wav
+Zither FREE samples/Zither vib Flesh Fin#0022F7.wav
+Zither FREE samples/Zither vib Flesh Fin#0022F8.wav
+Zither FREE samples/Zither vib Flesh Fin#0022FD.wav
