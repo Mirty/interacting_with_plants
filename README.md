@@ -4,23 +4,26 @@ interacting with plants through Arduino and generating art with openFrameworks
 
 ## the 3 applications
 ### 1 - fiori stilizzati su dipinto
-![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/Screen%20Shot%202019-03-28%20at%2019.35.30.png)
+![fiori stilizzati su dipinto](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/Screen%20Shot%202019-03-28%20at%2019.35.30.png)
 
 
 ### 2 - mandala moderno generativo
-![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/Screen%20Shot%202019-03-28%20at%2019.36.11.png)
+![mandala moderno generativo](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/Screen%20Shot%202019-03-28%20at%2019.36.11.png)
 
 
 ### 3 - living plant
-![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/Screen%20Shot%202019-03-28%20at%2019.38.44.png)
+![living plant](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/Screen%20Shot%202019-03-28%20at%2019.38.44.png)
 
 
 ## setup
 I've followed [this guide](https://github.com/robbiebarrat/plant-art), but since the aux cable I bought had 4 wires inside (and not only two as the cable used in that tutorial) I decided to not use the aux cable, this way I would have had a cleaner solution: I bought [this adapter](https://www.amazon.it/gp/product/B07GXMLGJG/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1) (I connect my electodes to one end) and [this](https://www.amazon.it/gp/product/B071XCPRNH/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) (and I connect this to the other end of the first adapter). You can see the result in the picture below.
-![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/setup.jpg)
+![the complete setup](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/setup.jpg)
 I added a green led to Arduino, which lights up when I touch the plant.
-![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/setup_arduino.jpg)
-![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/arduino_fritzing.png)
+
+<p align="center">
+  <img src="https://github.com/Mirty/interacting_with_plants/blob/master/imgs/setup_arduino.jpg" width="480" title="arduino setup">
+  <img src="https://github.com/Mirty/interacting_with_plants/blob/master/imgs/arduino_fritzing.png" width="480" alt="arduino in fritzing">
+</p>
 
 
 ## addons I've used for this project
