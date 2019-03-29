@@ -9,7 +9,7 @@
 #include "SampleCollection.hpp"
 
 
-void SampleCollection::initialize (string folder_name, vector <string> sample_names) {
+void SampleCollection::initialize (string folder_name, vector <string> sample_names, int th) {
     /* procedura che inizializza l'oggetto di classe SampleCollection */
     
     // salvo il nome della cartella in cui ci sono dei file .waw
@@ -19,7 +19,9 @@ void SampleCollection::initialize (string folder_name, vector <string> sample_na
     // salvo il numero di file contenuti in folder_name (dimensione di sample_names)
     int num_samples = sample_names.size();
     // scorro tante volte quante sono i samples nella cartella...
+    cout << "entro" << endl;
     for (int i = 0; i < num_samples; i++) {
+        cout << "qui" << endl;
         // salvo il titolo dell'iesimo sample
         samples_names.push_back (sample_names[i]);
         // carico il sample
@@ -29,7 +31,7 @@ void SampleCollection::initialize (string folder_name, vector <string> sample_na
         // gli permetto di riprodurre + audio in contemporanea
         players[i].setMultiPlay(true);
         // setto l'intervallo di frequenza iesimo
-        intervalli_frequenze.push_back((float(700) / float(num_samples)) * i);
+        intervalli_frequenze.push_back((float(th) / float(num_samples)) * i);
     }
     // setto l'ultima frequenza
     intervalli_frequenze.push_back(1024.0);

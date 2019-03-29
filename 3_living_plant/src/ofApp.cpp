@@ -13,20 +13,14 @@ void ofApp::setup(){
     
     // per ottenere i dati dalla porta seriale
     //serial.listDevices(); // stampo a video la lista delle porte
-    vector <ofSerialDeviceInfo> deviceList = serial.getDeviceList(); // ottengo la lista dei dispositivi
+    //vector <ofSerialDeviceInfo> deviceList = serial.getDeviceList(); // ottengo la lista dei dispositivi
     int baud = 9600; // il numero di dati trasmessi ogni secondo
     serial.setup(0, baud); // apro il primo dispositivo e setto il baud rate
     plantValue = 0; // inizializzo plantValue a 0
     last_millis_update = 0; // inizializzo last_millis_update a 0
     
-    
-    // inizializzo sample_collection con i file contenuti nelle cartelle in data
-    string absolute_path = "/Users/martamurtas/Desktop/LAB_proj/3_vertesentation/bin/data/samples.txt"; // salvo il percorso in cui si trova il file che elenca le cartelle contenenti i samples
-    std::unordered_map<string, vector <string>> files_and_samples = getSamples (absolute_path); // ottengo i nomi dei samples e le loro posizioni nelle diverse cartelle
-    init_my_sample_collection (files_and_samples); // creo la mia collezione di samples
-    
     // setto i parametri del pannello
-    instrumentSlider.setup ("instrument: ", 4, 0, sample_collection.size() - 1);
+    instrumentSlider.setup ("instrument: ", 4, 0, 9);
     volumeSlider.setup ("volume: ", 1, 0, 10);
     millisSlider.setup ("millis before update: ", 0, 0, 90);
     thresholdSlider.setup ("threshold: ", 40, 0, 200);
@@ -70,6 +64,12 @@ void ofApp::setup(){
     panel.add (&colorSlider);
     panel.add (&plantThresholdSlider);
     panel.add (&triangularizationSlider);
+    
+    
+    // inizializzo sample_collection con i file contenuti nelle cartelle in data
+    string absolute_path = "/Users/martamurtas/Desktop/LAB_proj/3_living_plant/bin/data/samples.txt"; // salvo il percorso in cui si trova il file che elenca le cartelle contenenti i samples
+    std::unordered_map<string, vector <string>> files_and_samples = getSamples (absolute_path); // ottengo i nomi dei samples e le loro posizioni nelle diverse cartelle
+    init_my_sample_collection (files_and_samples); // creo la mia collezione di samples
     
     
     // inizializzo le immagini che userò per trovare le differenze tra bg e img attuale.
@@ -459,9 +459,10 @@ void ofApp::init_my_sample_collection (std::unordered_map<string, vector <string
         // creo un'istanza di SampleCollection
         SampleCollection s_c;
         // inizializzo la collezione di samples con il nome della cartella e i nomi dei file al suo interno
-        s_c.initialize(folder_name, files_and_samples[folder_name]);
+        s_c.initialize(folder_name, files_and_samples[folder_name], plantThresholdSlider);
         // inserisco questa collezione in sample_collection
         sample_collection.push_back(s_c);
+        cout << "inizializzo " << folder_name << endl;
     }
 }
 

@@ -25,6 +25,6 @@ class SampleCollection {
         vector <float> intervalli_frequenze; // gli intervalli di frequenza
     
     public:
-        void initialize (string folder_name, vector <string> sample_names); // procedura che inizializza l'oggetto di classe SampleCollection
+        void initialize (string folder_name, vector <string> sample_names, int th); // procedura che inizializza l'oggetto di classe SampleCollection
         void play (int plantValue, float volume); // procedura per riprodurre un file musicale a seconda del valore di plantValue e del volume scelto
 };
