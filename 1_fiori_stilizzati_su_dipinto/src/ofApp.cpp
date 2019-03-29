@@ -16,11 +16,6 @@ void ofApp::setup(){
     int baud = 9600; // la frequenza di aggiornamento
     serial.setup(0, baud); // apri il primo dispositivo disponibile con baud aggiornamenti al secondo
     serial.flush (); // svuota la porta in lettura
-    
-    // inizializzo sample_collection con i file contenuti nelle cartelle in data
-    string absolute_path = "/Users/martamurtas/Desktop/LAB_proj/1_painting_plants/bin/data/samples.txt"; // salvo il percorso in cui si trova il file che elenca le cartelle contenenti i samples
-    std::unordered_map<string, vector <string>> files_and_samples = getSamples (absolute_path); // ottengo i nomi dei samples e le loro posizioni nelle diverse cartelle
-    init_my_sample_collection (files_and_samples); // creo la mia collezione di samples
 
     
     // popolo l'array di stringhe che conterrà i nomi delle immagini di background
@@ -34,7 +29,7 @@ void ofApp::setup(){
     // inizializzo gli elementi del mio pannello
     millisSlider.setup ("millis before update: ", 0, 0, 90);
     angleSlider.setup ("angle: ", 30, MIN_ANGLE, MAX_ANGLE);
-    instrumentSlider.setup ("instrument: ", 4, 0, sample_collection.size() - 1);
+    instrumentSlider.setup ("instrument: ", 4, 0, 9);
     volumeSlider.setup ("volume: ", 1, 0, 10);
     secondsFlowerSlider.setup ("add flower: ", 5, 2, 10);
     bgUpdateSlider.setup ("bg update", 60, 25, 120);
@@ -54,6 +49,13 @@ void ofApp::setup(){
     panel.add (&speedDesappearSlider);
     panel.add (&differenceInBrightnessSlider);
     panel.add (&plantThresholdSlider);
+    
+    
+    // inizializzo sample_collection con i file contenuti nelle cartelle in data
+    string absolute_path = "/Users/martamurtas/Desktop/LAB_proj/1_fiori_stilizzati_su_dipinto/bin/data/samples.txt"; // salvo il percorso in cui si trova il file che elenca le cartelle contenenti i samples
+    std::unordered_map<string, vector <string>> files_and_samples = getSamples (absolute_path); // ottengo i nomi dei samples e le loro posizioni nelle diverse cartelle
+    init_my_sample_collection (files_and_samples); // creo la mia collezione di samples
+    
     
     // inizializzo variabili che mi saranno utili in futuro
     last_posX = ofRandom (MAX_PETAL_LENGTH + BORDER, w - MAX_PETAL_LENGTH - BORDER); // salvo la pos in x del primo albero
@@ -140,6 +142,7 @@ void ofApp::updatePlantValue () {
         // ottengo la stringa contenente il valore appena letto dalla porta seriale
         string serialString = ofxGetSerialString(serial, '\n');
         if (serialString.length() > 0 || DEBUG) {
+            serial.flush (); // svuota la porta in lettura
             // se ho letto un valore corretto or DEBUG...
 
             // salvo l'ultimo valore letto
@@ -314,7 +317,7 @@ void ofApp::init_my_sample_collection (std::unordered_map<string, vector <string
         // creo un'istanza di SampleCollection
         SampleCollection s_c;
         // inizializzo la collezione di samples con il nome della cartella e i nomi dei file al suo interno
-        s_c.initialize(folder_name, files_and_samples[folder_name]);
+        s_c.initialize(folder_name, files_and_samples[folder_name], plantThresholdSlider);
         // inserisco questa collezione in sample_collection
         sample_collection.push_back(s_c);
     }
@@ -325,11 +328,13 @@ string ofApp::ofxGetSerialString (ofSerial &serial, char until) {
     /* metodo per leggere dalla porta seriale fino al carattere until */
     
     // https:\//sureskumar.wordpress.com/2012/12/17/sending-strings-from-arduino-to-openframeworks/
-    
-    // elimino tutto ciò che non ho fatto in tempo a leggere mentre elaboravo
-    serial.flush ();
-    // aspetto finché non mi arriva qualcosa da leggere (questione di millisecondi)
-    while (serial.available() == 0) {}
+    /*
+    if (plantValue != -1) {
+        // elimino tutto ciò che non ho fatto in tempo a leggere mentre elaboravo
+        serial.flush ();
+        // aspetto finché non mi arriva qualcosa da leggere (questione di millisecondi)
+        while (serial.available() == 0) {}
+    }*/
     
     
     // https:\//www.geeksforgeeks.org/static-keyword-cpp/
