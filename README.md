@@ -3,15 +3,15 @@ interacting with plants through Arduino and generating art with openFrameworks
 
 
 ## 1 - fiori stilizzati su dipinto
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/Screen%20Shot%202019-03-28%20at%2019.35.30.png)
 
 
 ## 2 - mandala moderno generativo
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/Screen%20Shot%202019-03-28%20at%2019.36.11.png)
 
 
 ## 3 - living plant
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/Screen%20Shot%202019-03-28%20at%2019.38.44.png)
 
 
 ### addons
