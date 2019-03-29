@@ -1,6 +1,7 @@
 # interacting_with_plants
 interacting with plants through Arduino and generating art with openFrameworks 
 
+
 ## the 3 applications
 ### 1 - fiori stilizzati su dipinto
 ![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/Screen%20Shot%202019-03-28%20at%2019.35.30.png)
@@ -16,7 +17,10 @@ interacting with plants through Arduino and generating art with openFrameworks
 
 ## setup
 I've followed [this guide](https://github.com/robbiebarrat/plant-art), but since the aux cable I bought had 4 wires inside (and not only two as the cable used in that tutorial) I also bought [this adapter](https://www.amazon.it/gp/product/B07GXMLGJG/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1) (I connect my electodes to one end) and [this](https://www.amazon.it/gp/product/B071XCPRNH/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) (and I connect this to the other end of the first adapter). You can see the result in the picture below.
-![alt text]()
+![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/setup.jpg)
+I added a green led to Arduino, which lights up when I touch the plant.
+![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/setup_arduino.jpg)
+![alt text](https://github.com/Mirty/interacting_with_plants/blob/master/imgs/arduino.png)
 
 
 ## addons I've used for this project
