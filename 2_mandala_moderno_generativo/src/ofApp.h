@@ -43,7 +43,7 @@ private:
     ofxIntSlider newDrawingSlider; // slider per stabilire ogni quanti secondi creare un nuovo disegno
     ofxIntSlider millisSlider; // slider per stabilire ogni quanto aggiornare plantValue
     ofxIntSlider trailSlider; // slider per stabilire quanta scia i disegni devono lasciare
-    
+    ofxIntSlider plantThresholdSlider; // slider per la sogliatura del segnale della pianta
     
     // ------------------------------ metodi e funzioni ----------------------
     string ofxGetSerialString(ofSerial &serial, char until); // metodo per leggere dalla porta seriale fino al carattere until

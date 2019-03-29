@@ -19,9 +19,7 @@ void SampleCollection::initialize (string folder_name, vector <string> sample_na
     // salvo il numero di file contenuti in folder_name (dimensione di sample_names)
     int num_samples = sample_names.size();
     // scorro tante volte quante sono i samples nella cartella...
-    cout << "entro" << endl;
     for (int i = 0; i < num_samples; i++) {
-        cout << "qui" << endl;
         // salvo il titolo dell'iesimo sample
         samples_names.push_back (sample_names[i]);
         // carico il sample

@@ -20,15 +20,10 @@ void ofApp::setup(){
     int baud = 9600; // frequenza di aggiornamento (9600 simboli al secondo)
     serial.setup(0, baud); // apro la prima porta disponibile
     
-    // inizializzo sample_collection con i file contenuti nelle cartelle in data
-    string absolute_path = "/Users/martamurtas/Desktop/LAB_proj/2_vento/bin/data/samples.txt"; // salvo il percorso in cui si trova il file che elenca le cartelle contenenti i samples
-    std::unordered_map<string, vector <string>> files_and_samples = getSamples (absolute_path); // ottengo i nomi dei samples e le loro posizioni nelle diverse cartelle
-    init_my_sample_collection (files_and_samples); // creo la mia collezione di samples
-    
     // setto il mio pannello e i relativi parametri
     panel.setup ("Parameters");
     panel.setPosition (50, 50);
-    instrumentSlider.setup ("instrument: ", 4, 0, sample_collection.size() - 1);
+    instrumentSlider.setup ("instrument: ", 4, 0, 9);
     volumeSlider.setup ("volume: ", 1, 0, 10);
     angleSlider.setup ("angle: ", 30, MIN_ANGLE, MAX_ANGLE); // default 30°, min 15°, max 180°
     dimensionSlider.setup ("dimension: ", 10, 5, 40);
@@ -36,6 +31,7 @@ void ofApp::setup(){
     newDrawingSlider.setup ("time for new drawing: ", 10, 2, 60);
     millisSlider.setup ("millis before update: ", 0, 0, 90);
     trailSlider.setup ("trail: ", 100, 0, 255);
+    plantThresholdSlider.setup ("plant threshold: ", 120, 5, 1024);
     
     // aggiungo i parametri al pannello
     panel.add (&instrumentSlider);
@@ -46,6 +42,13 @@ void ofApp::setup(){
     panel.add (&newDrawingSlider);
     panel.add (&millisSlider);
     panel.add (&trailSlider);
+    panel.add (&plantThresholdSlider);
+    
+    
+    // inizializzo sample_collection con i file contenuti nelle cartelle in data
+    string absolute_path = "/Users/martamurtas/Desktop/LAB_proj/2_mandala_moderno_generativo/bin/data/samples.txt"; // salvo il percorso in cui si trova il file che elenca le cartelle contenenti i samples
+    std::unordered_map<string, vector <string>> files_and_samples = getSamples (absolute_path); // ottengo i nomi dei samples e le loro posizioni nelle diverse cartelle
+    init_my_sample_collection (files_and_samples); // creo la mia collezione di samples
     
     
     // creo la mia palette di colori
@@ -251,7 +254,7 @@ void ofApp::init_my_sample_collection (std::unordered_map<string, vector <string
         // creo un'istanza di SampleCollection
         SampleCollection s_c;
         // inizializzo la collezione di samples con il nome della cartella e i nomi dei file al suo interno
-        s_c.initialize(folder_name, files_and_samples[folder_name]);
+        s_c.initialize(folder_name, files_and_samples[folder_name], plantThresholdSlider);
         // inserisco questa collezione in sample_collection
         sample_collection.push_back(s_c);
     }
