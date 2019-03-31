@@ -78,6 +78,7 @@ void ofApp::update(){
     // aggiorno l'attuale valore della pianta
     updatePlantValue ();
     
+    
     // cambio solo la dimensione e il numero di angili dell'ultimo livello
     drawings[drawings.size()-1].updateRepresentation (center, angleSlider, dimensionSlider);
     // aggiorno le primitive di tutti i livelli in base al valore di frequenza e di sparsità (scelto dall'utente tramite la gui)
@@ -85,8 +86,12 @@ void ofApp::update(){
         drawings[i].updatePoints (center, plantValue, MAX_SPARSITY - sparsitySlider);
     }
     
+    
+    // aggiorno eventualmente la soglia per la suddivisione dei player in intervalli
+    if (sample_collection[instrumentSlider].th != plantThresholdSlider) sample_collection[instrumentSlider].update (plantThresholdSlider);
     // verifico a che intervallo appartiene l'attuale plantValue e riproduco i suoni dello strumento scelto dall'utente tramite gui (instrumentSlider)
     sample_collection[instrumentSlider].play (plantValue, volumeSlider/10);
+    
     
     // verifico se è il caso di aggiungere un nuovo fiore
     int now = ofGetElapsedTimef();
