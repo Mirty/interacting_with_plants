@@ -31,9 +31,9 @@ class Flower {
     
         // ------------------------------ metodi e funzioni ----------------------
         void initialize (ofPoint startingPoint, ofColor colore); // procedura per l'inizializzazione dell'istanza
-        void addPetal (int frequencyValue); // procedura per l'aggiunta di un nuovo petalo
+        void addPetal (int frequencyValue, int intervallo); // procedura per l'aggiunta di un nuovo petalo
+        void draw (bool isBeingTouched); // procedura per il disegno del fiore. se isBeingTouched è true allora il fiore viene disegnato con maggiore luminosità
         void draw (); // procedura per il disegno del fiore
-        void draw (ofColor color); // procedura per il disegno del fiore colorato
         void update (int freq, int angle, int max_frequency); // procedura per l'aggiornamento di alcuni valori del fiore
         void update (ofPoint c, int value); // procedura per l'aggiornamento della posizione del fiore
         void setColor (ofColor color); // procedura per il settaggio del colore del fiore

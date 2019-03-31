@@ -58,7 +58,7 @@ void Flower::update (int freq, int angle, int max_frequency) {
         }
         else {
             // se la frequenza attuale non è quella di questo petalo...
-            petals[i].updateLength (-1); // decremento di 1 unità la lunghezza del petalo
+            petals[i].updateLength (-3); // decremento di 1 unità la lunghezza del petalo
         }
         
         // ogni petalo è rappresentato attorno al pistillo.
@@ -71,30 +71,36 @@ void Flower::update (int freq, int angle, int max_frequency) {
         // in base al valore di angleSlider settato dall'utente =>
         // x : 360 = petals[i].frequencyValue / max_frequency
         float relative_angle = float(petals[i].frequencyValue * 360)/float(max_frequency);
-        int intervallo = 0;
-        bool found = false;
+        int intervallo = -1;
         for (int j = 0; j < num_intervalli; j++) {
             // verifico a che intervallo appartienen
-            if (relative_angle > intervalli[j] && relative_angle < intervalli[j+1]) {
+            if (relative_angle >= intervalli[j] && relative_angle < intervalli[j+1]) {
                 intervallo = intervalli[j];
-                found = true;
                 break;
             }
         }
-        //if (! found) intervallo = intervalli[num_intervalli-1];
-        petals[i].setAngle(intervallo);
-        
+        if (intervallo != -1) petals[i].setAngle(intervallo);
         
     }
     // se isUpdated == false vuol dire che ho una frequenza nuova, non ancora appartenente ai petali attualmente memorizzati
     if (! isUpdated) {
         if (freq != 0) {
-            addPetal(freq); // aggiungo il petalo
+            // x : 360 = freq / max_frequency
+            float relative_angle = float(freq * 360)/float(max_frequency);
+            int intervallo = -1;
+            for (int j = 0; j < num_intervalli; j++) {
+                // verifico a che intervallo appartienen
+                if (relative_angle >= intervalli[j] && relative_angle < intervalli[j+1]) {
+                    intervallo = intervalli[j];
+                    break;
+                }
+            }
+            if (intervallo != -1) addPetal(freq, intervallo); // aggiungo il petalo
         }
     }
 }
 
-void Flower::addPetal (int frequencyValue) {
+void Flower::addPetal (int frequencyValue, int intervallo) {
     /* procedura per l'aggiunta di un nuovo petalo */
     
     // ogni fiore può avere da un minimo di 0 petali a un massimo di 1024.
@@ -104,9 +110,67 @@ void Flower::addPetal (int frequencyValue) {
     // creo un nuovo petalo
     Petal newPetal;
     // inizializzo il petalo
-    newPetal.initialize(frequencyValue, startingPoint, 0);
+    newPetal.initialize(frequencyValue, startingPoint, intervallo);
     //aggiungo un nuovo petalo al fiore
     petals.push_back (newPetal);
+}
+
+void Flower::draw (bool isBeingTouched) {
+    /* procedura per il disegno del fiore. se isBeingTouched è true allora il fiore viene disegnato con maggiore luminosità */
+    
+    // ora è il momento di rappresentare i petali.
+    // la prima cosa che devo fare è capire quanto sarà lungo ogni petalo,
+    // e ogni petalo ha un angolo diverso dall'altro. per fare questo,
+    // creo un hashmap float->int ovvero angolo->lunghezza
+    std::unordered_map<float, int> map = {}; // O (1) perché non è ordinata
+    // e un vettore di angoli
+    vector <float> angles;
+    // ottengo le lunghezze per ogni angolo
+    for (int i = 0; i < petals.size(); i ++) {
+        float angle = petals[i].angle;
+        int lunghezza = petals[i].lunghezza;
+        // se già angolo non è contenuto...
+        if (map.find(angle) == map.end()) {
+            map [angle] = lunghezza; // inserisco l'angolo e la lunghezza
+            angles.push_back(angle); // aggiorno il vettore degli angoli
+        } else {
+            // altrimenti aggiorno la lunghezza per quell'angolo
+            map [angle] += lunghezza;
+            // non faccio sforare la lunghezza per quell'angolo oltre un certo valore
+            if (map[angle] > MAX_PETAL_LENGTH) map[angle] = MAX_PETAL_LENGTH;
+        }
+    }
+    
+    
+    // setto il colore del fiore
+    ofColor color = colore;
+    if (isBeingTouched) color.setBrightness(color.getBrightness() + 50);
+    ofSetColor (color);
+    
+    
+    // disegno tutti i suoi petali (un petalo per angolo)
+    for (int i = 0; i < angles.size(); i++) {
+        // ottengo l'angolo
+        float angle = angles[i];
+        // ottengo la sua lunghezza
+        int lunghezza = map[angle];
+        // trasfondo l'angolo in radianti
+        float radians = float (angle * PI) / float(180);
+        // calcolo il punto finale del petalo
+        ofPoint endPoint = ofPoint (
+                                    startingPoint.x + cos(radians) * lunghezza, startingPoint.y + sin (radians) * lunghezza);
+        // disegno la linea del petalo
+        ofDrawLine (startingPoint.x,  startingPoint.y, endPoint.x,  endPoint.y);
+        // disegno l'ellisse che simboleggia la fine del petalo
+        ofDrawCircle (endPoint.x, endPoint.y, 5, 5);
+    }
+    // disegno il pistillo del fiore di grandezza in base alla presenza o meno di petali
+    if (angles.size () == 0) ofDrawCircle (startingPoint.x, startingPoint.y, 10);
+    else ofDrawCircle (startingPoint.x, startingPoint.y, 3);
+    
+    // disegno il gambo
+    ofDrawLine (startingPoint.x, startingPoint.y, startingPoint.x, ofGetHeight());
+    
 }
 
 void Flower::draw () {

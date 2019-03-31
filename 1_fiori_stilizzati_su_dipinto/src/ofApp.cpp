@@ -9,13 +9,6 @@ void ofApp::setup(){
     //ofFill();
     ofSetFullscreen(true);
     ofSetFrameRate (60);
-    
-    // per ottenere i dati dalla porta seriale
-    // serial.listDevices(); // stampa la lista dei dispositivi disponibili
-    //vector <ofSerialDeviceInfo> deviceList = serial.getDeviceList(); // memorizzo la lista dei dispositivi dispo
-    int baud = 9600; // la frequenza di aggiornamento
-    serial.setup(0, baud); // apri il primo dispositivo disponibile con baud aggiornamenti al secondo
-    serial.flush (); // svuota la porta in lettura
 
     
     // popolo l'array di stringhe che conterrà i nomi delle immagini di background
@@ -69,6 +62,15 @@ void ofApp::setup(){
     // creo il primo fiore specificando l'ascissa in cui verrà centrato
     addFlower(x);
     
+    
+    // per ottenere i dati dalla porta seriale
+    // serial.listDevices(); // stampa la lista dei dispositivi disponibili
+    //vector <ofSerialDeviceInfo> deviceList = serial.getDeviceList(); // memorizzo la lista dei dispositivi dispo
+    int baud = 9600; // la frequenza di aggiornamento
+    serial.setup(0, baud); // apri il primo dispositivo disponibile con baud aggiornamenti al secondo
+    serial.flush (); // svuota la porta in lettura
+    
+    
     // richiamo la funzione per il settaggio di inkSim (addon)
     inkSim.setup();
 }
@@ -79,6 +81,8 @@ void ofApp::update(){
     // aggiorno il valore della pianta
     updatePlantValue ();
     
+    // aggiorno eventualmente la soglia per la suddivisione dei player in intervalli
+    if (sample_collection[instrumentSlider].th != plantThresholdSlider) sample_collection[instrumentSlider].update (plantThresholdSlider);
     // verifico a che intervallo appartiene l'attuale plantValue e suono
     sample_collection[instrumentSlider].play (plantValue, volumeSlider/10);
 
@@ -91,9 +95,10 @@ void ofApp::draw(){
     inkSim.draw();
     
     // disegno i fiori
-    for (int i = 0; i < flowers.size(); i++) {
+    for (int i = 0; i < flowers.size() - 1; i++) {
         flowers[i].draw();
     }
+    flowers[flowers.size() - 1].draw(plantValue >= plantThresholdSlider);
     
     // disegno il pannello in cima al resto
     ofSetColor (255);
@@ -134,7 +139,6 @@ void ofApp::addFlower (int x, int y) {
 void ofApp::updatePlantValue () {
     /* procedura che aggiorna plantValue a ogni chiamata */
     
-    
     int now = ofGetElapsedTimeMillis(); // salvo il tempo attuale
     // verifico che siano passati almeno millisSlider ms dall'ultimo rilevamento.
     // in caso contrario non aggiorno plantValue e ciò che dipende da lei.
@@ -142,7 +146,6 @@ void ofApp::updatePlantValue () {
         // ottengo la stringa contenente il valore appena letto dalla porta seriale
         string serialString = ofxGetSerialString(serial, '\n');
         if (serialString.length() > 0 || DEBUG) {
-            serial.flush (); // svuota la porta in lettura
             // se ho letto un valore corretto or DEBUG...
 
             // salvo l'ultimo valore letto
@@ -155,12 +158,12 @@ void ofApp::updatePlantValue () {
                     // trasformo il valore da string a int
                     plantValue = std::stoi( serialString );
                     if (plantValue > 1023) { // errore in lettura/scrittura
-                        plantValue = 0;
+                        plantValue = -1;
                     }
                 }
                 catch (std::invalid_argument e) {
                     // se per qualche ragione non ricevo il valore da Arduino, lo setto io a 0
-                    plantValue = 0;
+                    plantValue = -1;
                 }
             }
             
@@ -170,11 +173,13 @@ void ofApp::updatePlantValue () {
             // aggiorno i fiori
             updateFlowers();
             
+            serial.flush (); // svuota la porta in lettura
+            
             // aggiorno la variabile che tiene conto dell'ultima volta che ho aggiornato plantValue
             last_millis_update = ofGetElapsedTimeMillis ();
         }
     }
-    else plantValue = 0;
+    else plantValue = -1;
 }
 
 //--------------------------------------------------------------
@@ -190,6 +195,7 @@ void ofApp::updateFlowers () {
     // aggiorno la variabile che tiene traccia dell'ultimo aggiornamento di fr != 0
     int now = ofGetElapsedTimef ();
     if (plantValue != 0) last_frequency_time = now;
+    
     // se non è passato troppo tempo dall'ultimo aggiornamento oppure se non è passato troppo tempo dall'ultima volta che ho creato un fiore, aggiorno l'ultimo fiore
     if (now - last_frequency_time <= secondsFlowerSlider && now - last_flower_creation_time <= secondsFlowerSlider) {
         flowers[flowers.size()-1].update (plantValue, angleSlider, plantThresholdSlider);
