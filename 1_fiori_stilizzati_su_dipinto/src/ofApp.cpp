@@ -151,8 +151,8 @@ void ofApp::updatePlantValue () {
             // salvo l'ultimo valore letto
             last_frequency = plantValue;
         
-            // se sono in modalità DEBUG assegno a plantValue un valore random da 0 a 1023
-            if (DEBUG) plantValue = ofRandom (200);
+            // se sono in modalità DEBUG assegno a plantValue un valore random da 0 a plantThresholdSlider
+            if (DEBUG) plantValue = ofRandom (plantThresholdSlider);
             else { // se non sono in debug...
                 try {
                     // trasformo il valore da string a int
@@ -179,7 +179,6 @@ void ofApp::updatePlantValue () {
             last_millis_update = ofGetElapsedTimeMillis ();
         }
     }
-    else plantValue = -1;
 }
 
 //--------------------------------------------------------------
@@ -215,6 +214,7 @@ void ofApp::updateWatercolor () {
     if (ofGetElapsedTimef() >= last_bg_update + bgUpdateSlider) {
         // aggiorno il bg
         updateBg();
+        cout << "aggiorno il bg" << endl;
         // aggiorno la var che tiene conto dell'ultimo aggiornamento
         last_bg_update = ofGetElapsedTimef();
     }
@@ -225,14 +225,15 @@ void ofApp::updateWatercolor () {
     int bg_h = bg_img.getHeight();
     int total_pixels = bg_w * bg_h;
     // faccio un mapping del valore di plantValue per capire a che pixel corrisponde
-    int value = ofMap (plantValue, 0, 1024, 0, total_pixels - 1);
+    int value = ofMap (plantValue, 0, plantThresholdSlider, 0, total_pixels - 1);
     // calcolo ascissa e ordinata rispettivamente alle dimensioni dell'img di bg
     int x = value % bg_w;
     int y = value / bg_w;
     // ottengo il colore dell'immagine nelle coordinate x, y
     ofColor color = ofColor (0);
     // salvo il colore dell'img di bg in pos x,y
-    color = bg_img.getColor(x, y);
+    if (x * y >= 0 && x < bg_w && y < bg_h) color = bg_img.getColor(x, y);
+    
     
     // calcolo il punto in cui dare una pennellata, ascissa e ordinata
     value = ofMap (plantValue, 0, plantThresholdSlider, 0, w * h - 1);
