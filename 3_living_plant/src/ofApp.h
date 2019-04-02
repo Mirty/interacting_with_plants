@@ -72,7 +72,6 @@ class ofApp : public ofBaseApp{
         ofPoint initialRepulsion; // punto di vento iniziale che spinge le foglie dentro lo schermo
         vector <ofTexture*> textures_vector; // vettore di puntatori a texture
     
-    
         // ---------------------------- PROCEDURE E METODI ------------------------------
         void updatePlantValue (); // procedura che aggiorna plantValue a ogni chiamata
         void updateBg (); // procedura che aggiorna l'immagine delle differenze

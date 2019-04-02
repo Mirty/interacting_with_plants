@@ -3,7 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetFullscreen (true); // imposto la modalità a schermo intero
-    //ofSeedRandom(0); // imposto il seed per la generazione dei numeri random
+    ofSeedRandom(0); // imposto il seed per la generazione dei numeri random
+    ofSetVerticalSync (true);
     w = ofGetWidth (); // salvo la larghezza della finestra
     h = ofGetHeight (); // salvo l'altezza della finestra
     grabber.initGrabber (w, h); // voglio prendere il video di tutta la finestra
@@ -35,10 +36,10 @@ void ofApp::setup(){
     bounceSlider.setup ("bounce: ", 0.0, 0.0, 2);
     frictionSlider.setup ("friction: ", 2, 0.0, 2);
     gravitySlider.setup ("gravity: ", 5, 1, 50);
-    windSlider.setup ("wind: ", 25, 5, 40);
+    windSlider.setup ("wind: ", 7, 2, 30);
     triangularizationSlider.setup ("triangulate: ", false, false, true);
     colorSlider.setup ("color: ", ofColor (255), 0, 255);
-    plantThresholdSlider.setup ("plant threshold: ", 120, 5, 1024);
+    plantThresholdSlider.setup ("plant threshold: ", 200, 5, 1024);
     
     // setto il mio pannello
     int panel_border = 20;
@@ -87,12 +88,13 @@ void ofApp::setup(){
         ofTexture * texture = new ofTexture (); // creo un puntatore a Texture
         ofLoadImage (*texture, filename); // carico l'immagine di nome filename in texture
         textures_vector.push_back(texture); // metto texture nel vettore delle texture
-        //cout << "carico " << filename << endl; // feedback del caricamento
+        //cout << "carico la texture " << filename << endl; // feedback del caricamento
     }
     
     
     windGenerator = ofPoint (0, h/3); // posiziono il mio punto vento in 0, h/3
     wy = 0; // inizializzo ty a 0 (è il parametro per il rumore di Perlin)
+    
     box2d.init(); // inizializzo il mio mondo
     box2d.setGravity(0, gravitySlider); // assegno gravità al mondo
     box2d.setFPS(60.0); // l'fps del mondo è diverso da quello dell'applicazione
@@ -104,25 +106,34 @@ void ofApp::update(){
     // aggiorno il valore della pianta
     updatePlantValue ();
 
+    
+    // aggiorno eventualmente la soglia per la suddivisione dei player in intervalli
+    if (sample_collection[instrumentSlider].th != plantThresholdSlider) sample_collection[instrumentSlider].update (plantThresholdSlider);
     // verifico a che intervallo appartiene l'attuale plantValue
     sample_collection[instrumentSlider].play (plantValue, volumeSlider/10);
+    
     
     // aggiornamento dei valori dello spettro sonoro in base all'audio riprodotto
     updateSpectrum ();
     
-    // aggiorno il punto windGenerator
-    windGenerator.x = ofMap (plantValue, 0, 1023, 0, w/2);
-    windGenerator.y += ofSignedNoise (wy * 0.5) * 10;
-    wy += plantValue;
     
+    // aggiorno il punto windGenerator
+    windGenerator.x = ofMap (plantValue, 0, plantThresholdSlider, 0, w/3);
+    windGenerator.y += ofSignedNoise (wy) * 10;
+    wy += plantValue * 3;
+    
+ 
     // aggiorno il bg e il ground
     updateBg ();
+ 
     
     // aggiorno il mio mondo
     updateWorld ();
+ 
     
     // aggiorno le foglioline
     updateLeaves ();
+     
 }
 
 //--------------------------------------------------------------
@@ -132,17 +143,16 @@ void ofApp::draw(){
     //ofSetColor (0, 200); // setto il colore nero con alpha 200
     //ofDrawRectangle (0, 0, w, h); // disegno un rettangolo sopra l'immagine di sfondo
 
+    
     // disegno le figure
     drawFigures ();
     
+    
     // disegno le foglioline
     for (Leaf * leaf : leaves_vector) {
-        leaf->draw (); // richiamo il metodo draw del puntatore
+        leaf->draw (); // richiamo il metodo draw dell'oggetto puntato
     }
-
-    // disegno il ground
-    //ofSetColor (255, 0, 255);
-    //ground.draw();
+    
     
     // mostro a video il pannello coi vari parametri della gui
     panel.draw ();
@@ -177,7 +187,9 @@ void ofApp::updatePlantValue () {
             }
             // se plantValue >= plantThresholdSlider creo leavesAtATimeSlider nuove foglie
             if (plantValue >= plantThresholdSlider) {
-                for (int i = 0; i < leavesAtATimeSlider; i++) addElementToMyWorld ();
+                for (int i = 0; i < leavesAtATimeSlider; i++) {
+                    addElementToMyWorld ();
+                }
             }
             
             // aggiorno la variabile che tiene conto dell'ultima volta che ho aggiornato plantValue
@@ -188,6 +200,22 @@ void ofApp::updatePlantValue () {
     
     serial.flush();
     
+}
+
+//--------------------------------------------------------------
+void ofApp::updateSpectrum () {
+    /* procedura che fa l'update dello spettro sonoro */
+    
+    // la trasformata di fourier (ofSoundGetSpectrum) restituisce il valore delle frequenze (le ampiezze) per ogni istante
+    // le basse frequenze hanno ampiezze elevate
+    // le alte frequenze hanno basse ampiezze
+    float * currentSpectrum = ofSoundGetSpectrum (BANDS); // divide lo spettro in n bande
+    // puntatore a un elemento float.
+    
+    for (int i = 0; i < 3; i ++) {
+        spectrumDisplay [i] *= 0.98;
+        spectrumDisplay [i] = max (spectrumDisplay [i], currentSpectrum [i]); // prendo il valore più alto. quindi riprendo currentSpectrum solo quando è maggiore, ed è per questo che non vedo scatti, perché decrementa sempre del 98% fino a quando non trovo un valore + alto.
+    }
 }
 
 //--------------------------------------------------------------
@@ -212,7 +240,7 @@ void ofApp::updateBg(){
         // calcolo la differenza in valore assoluto tra l'immagine attuale e l'img di bg
         grayDiff.absDiff(grayBg, grayImage);
         // faccio la sogliatura dell'immagine delle differenze
-        // lasciO a 1 solo quei pixel il cui valore è > del valore di thresholdSlider
+        // lascio a 1 solo quei pixel il cui valore è > del valore di thresholdSlider
         grayDiff.threshold(thresholdSlider);
         
         // trovo i contorni in grayDiff. i parametri specificati sono:
@@ -236,26 +264,10 @@ void ofApp::updateBg(){
 }
 
 //--------------------------------------------------------------
-void ofApp::updateSpectrum () {
-    /* procedura che fa l'update dello spettro sonoro */
-    
-    // la trasformata di fourier (ofSoundGetSpectrum) restituisce il valore delle frequenze (le ampiezze) per ogni istante
-    // le basse frequenze hanno ampiezze elevate
-    // le alte frequenze hanno basse ampiezze
-    float * currentSpectrum = ofSoundGetSpectrum (BANDS); // divide lo spettro in n bande
-    // puntatore a un elemento float.
-    
-    for (int i = 0; i < 3; i ++) {
-        spectrumDisplay [i] *= 0.98;
-        spectrumDisplay [i] = max (spectrumDisplay [i], currentSpectrum [i]); // prendo il valore più alto. quindi riprendo currentSpectrum solo quando è maggiore, ed è per questo che non vedo scatti, perché decrementa sempre del 98% fino a quando non trovo un valore + alto.
-    }
-}
-
-//--------------------------------------------------------------
 void ofApp::updateWorld () {
     /* procedura che aggiorna il mio mondo */
     
-    // assegno gravità al mondo
+    // assegno gravità verticale al mondo (0 in orizzontale)
     box2d.setGravity(0, gravitySlider);
     // aggiorno il mondo
     box2d.update ();
@@ -265,10 +277,7 @@ void ofApp::updateWorld () {
     // ottengo il numero di blob in contourFinder
     int numBlobs = contourFinder.nBlobs;
     // aggiungo tutti i vertici dei tutti i blob a groundLine
-    //for (int i=0; i < numBlobs; i++) groundLine.addVertices(contourFinder.blobs[i].pts);
-    for (int i=0; i < numBlobs; i++) {
-        groundLine.addVertices (contourFinder.blobs[i].pts);
-    }
+    for (int i=0; i < numBlobs; i++) groundLine.addVertices(contourFinder.blobs[i].pts);
 
     // se c'è almeno un vertice in ground lo svuoto
     if (ground.getVertices().size() > 0 ) ground.clear();
@@ -276,7 +285,7 @@ void ofApp::updateWorld () {
     if (groundLine.getVertices().size() > 2) {
         // aggiungo a ground i vertici di groundLine
         ground.addVertexes (groundLine);
-        // rigenero il mondo
+        // genero il ground dentro il mondo
         ground.create(box2d.getWorld());
         // aggiorno la forma di ground
         ground.updateShape();
@@ -310,7 +319,6 @@ void ofApp::updateLeaves () {
             delete leaves_vector[i]; // elimino l'oggetto puntato da leaves_vector[i]
 
             leaves_vector.erase (leaves_vector.begin() + i); // rimuovo l'elemento dal vettore
-            
             i -= 1; // devo tornare indietro di 1 con l'indice: così faccio il controllo dal successivo e non finisco fuori dai confini del vettore in memoria
         }
         else { // aggiorno la sua posizione a seconda della sua distanza dal punto ventoso
@@ -321,14 +329,13 @@ void ofApp::updateLeaves () {
             float dis = windGenerator.distance(pos);
             // calcolo la forza basandomi sulla distanza tra i 2 punti:
             // se la distanza è tanta la forza è poca.
-            float force = ofMap (dis, 0, w/3, windSlider, 2);
+            float force = ofMap (dis, 0, w, windSlider, windSlider.getMin());
             // se la foglia sta alla destra del punto vento...
-            if (pos.x > windGenerator.x) {
-                // se la distanza in valore assoluto tra le ordinate è < 100...
-                if (abs(pos.y - windGenerator.y) < 100) {
+            if (pos.x > windGenerator.x && abs(pos.y - windGenerator.y) < 150) {
+                // se la distanza in valore assoluto tra le ordinate è < 100... (perché voglio che la foglia sia dentro la finestra)
                     // aggiungo alla foglia il punto di repulsione (windGenerator) con forza force
-                    leaf->addRepulsionForce(windGenerator, force);
-                }
+                leaf->addRepulsionForce(windGenerator, force);
+                
             }
             // altrimenti se la foglia non sta alla destra del punto vento...
             else {
@@ -349,8 +356,9 @@ void ofApp::drawFigures () {
     if (triangularizationSlider) triangle.draw (0, 0, colorSlider);
     
     // scelgo una fr per influenzare il raggio e una per la opacità
-    float radius = ofMap (spectrumDisplay [2], 0, 0.2, 5, 15); // raggio delle ellissi
-    float opacity = ofMap (spectrumDisplay [1], 0, 0.2, 30, 150); // l'opacità delle ellissi
+    //cout << spectrumDisplay [2] << " " << spectrumDisplay [1] << endl;
+    float radius = ofMap (spectrumDisplay [2], 0, 0.05, 2, 15); // raggio delle ellissi
+    float opacity = ofMap (spectrumDisplay [1], 0, 0.02, 30, 150); // l'opacità delle ellissi
      
     // voglio però ottenere un effetto un po' sfumato, per non mostrare a video una sagoma troppo definita, che può risultare fastidiosa. per fare questo disegno attorno ai bordi delle piccole ellissi che sfumano un minimo la sagoma dei contorni trovati.
     // ottengo il numero di blob trovati dal contourFinder
@@ -386,11 +394,11 @@ void ofApp::addElementToMyWorld () {
     initialRepulsion.y = y-5;
     
     // faccio il setup, agigorno la fisica, setto la texture della foglia e aggiungo repulsione
-    newLeaf->setup (box2d.getWorld(), -radius*1.5, y, radius);
     newLeaf->setPhysics (densitySlider, bounceSlider, frictionSlider);
+    newLeaf->setup (box2d.getWorld(), -radius*1.5, y, radius);
     newLeaf->setTexture (textures_vector[int(ofRandom(8))]);
-    newLeaf->addRepulsionForce(initialRepulsion, plantValue * 2);
-    
+    newLeaf->addRepulsionForce(initialRepulsion, plantValue * 5);
+
     // aggiungo la foglia al vettore
     leaves_vector.push_back(newLeaf);
 }
@@ -582,12 +590,11 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
@@ -660,6 +667,7 @@ void ofApp::exit(){
     
     // elimino le texture
     clearTextures ();
+
     
     cout << "Ho liberato la RAM" << endl;
 }
