@@ -30,8 +30,9 @@ I added a green led to Arduino, which lights up when I touch the plant.
 
 ## addons I've used for this project
 * [ofxGui](https://openframeworks.cc/documentation/ofxGui/) - enables the user to edit some program parameters at run time
+* [ofxOpenCv](https://openframeworks.cc/documentation/ofxOpenCv/) - used for computing the difference image
 * [ofxInkSim](https://github.com/Akira-Hayasaka/ofxInkSim) - generates a watercolor kind of drawing
-* [ofxTraingle](https://github.com/obviousjim/ofxTriangle) - used for the triangulization of the figures on the screen
+* [ofxTriangle](https://github.com/obviousjim/ofxTriangle) - used for the triangulization of the figures on the screen
 * [ofxBox2d](https://github.com/vanderlin/ofxBox2d) - the elements on the screen have a particular physic
 
 
