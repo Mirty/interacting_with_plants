@@ -2,7 +2,7 @@
 
 int analogPin = A0; // pin da cui prendere l'input
 int sensorValue = 0; // variabile in cui memorizzo il valore letto di volta in volta
-int threshold = 380; // è più alto quanto più il led si accende facilmente a causa del rumore
+int threshold = 200; // è più alto quanto più il led si accende facilmente a causa del rumore
 
 void setup() {
   Serial.begin (9600); // initializzo la comunicazione seriale a 9600 bps
@@ -12,11 +12,11 @@ void setup() {
 void loop() {
   
   sensorValue = analogRead (analogPin); // leggo 10 bit => 2^10 = 1024. quindi leggo valori da 0 a 1023
-  Serial.println (sensorValue);
-  if (sensorValue > threshold) { // passo il valore del pin in output
-      digitalWrite(13, HIGH);
+  Serial.println (sensorValue); // passo il valore del pin in output
+  if (sensorValue > threshold) { 
+      digitalWrite(13, HIGH); // se il valore attuale è maggiore della soglia allora faccio accendere il led
     }
   else {
-    digitalWrite(13, LOW);
+    digitalWrite(13, LOW); // altrimenti lo spengo
     }
 }
