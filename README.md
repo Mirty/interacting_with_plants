@@ -47,5 +47,7 @@ you will then be able to include use it or them.
 * [plant-art project](https://github.com/robbiebarrat/plant-art) - generating art from plants using Arduino and Processing
 * [touché experiment](https://www.nickarner.com/blog/2017/7/8/talking-to-plants-touch%C3%A9-experiments) 
 * [plants play](https://www.plantsplay.com/) - a device able to generate music from plants
+* [the Sonic Artist Making Music with Plants](https://www.youtube.com/watch?v=wYU18eiiFt4) 
+* [Quantum Space / interactive room](https://vimeo.com/120944206)
 
 
