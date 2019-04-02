@@ -1,4 +1,4 @@
-# interacting_with_plants
+# interaction with plants
 interacting with plants through Arduino and generating art with openFrameworks 
 
 
