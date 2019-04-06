@@ -45,7 +45,7 @@ void Leaf::draw () {
     ofSetColor (255);
     // disegno la texture in 0,0 con grandezza getRadius (), max_dim
     texture->draw (0, 0, getRadius (), max_dim);
-    ofPopStyle(); // DA TOGLIERE FORSE -> https:\//openframeworks.cc/documentation/graphics/ofGraphics/#show_ofPopStyle
+    //ofPopStyle(); // DA TOGLIERE FORSE -> https:\//openframeworks.cc/documentation/graphics/ofGraphics/#show_ofPopStyle
     // torno al livello precedente
     ofPopMatrix();
 };

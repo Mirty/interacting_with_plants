@@ -15,6 +15,7 @@ void Flower::initialize (ofPoint startingPoint, ofColor colore) {
     // inizializzo le proprietà starting point e colore
     this->startingPoint = startingPoint;
     this->colore = colore;
+    last_angle = 0;
 }
 
 void Flower::update (ofPoint c, int value) {
@@ -82,9 +83,10 @@ void Flower::update (int freq, int angle, int max_frequency) {
         if (intervallo != -1) petals[i].setAngle(intervallo);
         
     }
-    // se isUpdated == false vuol dire che ho una frequenza nuova, non ancora appartenente ai petali attualmente memorizzati
+    // se isUpdated == false vuol dire che nessun petalo ha la frequenza freq,
+    // quindi devo creare un nuovo petalo
     if (! isUpdated) {
-        if (freq != 0) {
+        if (freq > 0) {
             // x : 360 = freq / max_frequency
             float relative_angle = float(freq * 360)/float(max_frequency);
             int intervallo = -1;
@@ -104,8 +106,8 @@ void Flower::addPetal (int frequencyValue, int intervallo) {
     /* procedura per l'aggiunta di un nuovo petalo */
     
     // ogni fiore può avere da un minimo di 0 petali a un massimo di 1024.
-    // un petalo corrisponde a ogni valore di frequenza.
-    // i petali non sono rappresentati graficamente, mi servono come back-end.
+    // un petalo corrisponde a un di frequenza [0; 1023].
+    // i petali non sono rappresentati graficamente, mi servono come "back-end"/supporto.
     
     // creo un nuovo petalo
     Petal newPetal;
@@ -144,9 +146,15 @@ void Flower::draw (bool isBeingTouched) {
     
     // setto il colore del fiore
     ofColor color = colore;
-    if (isBeingTouched) color.setBrightness(color.getBrightness() + 50);
+    if (isBeingTouched) color.setBrightness(color.getBrightness() + 30);
     ofSetColor (color);
     
+    ofPushMatrix ();
+    ofTranslate (startingPoint.x, startingPoint.y);
+    ofRotateDeg (last_angle);
+    ofTranslate(-startingPoint.x, -startingPoint.y);
+    last_angle += 1;
+    if (last_angle==360) last_angle = 0;
     
     // disegno tutti i suoi petali (un petalo per angolo)
     for (int i = 0; i < angles.size(); i++) {
@@ -164,6 +172,8 @@ void Flower::draw (bool isBeingTouched) {
         // disegno l'ellisse che simboleggia la fine del petalo
         ofDrawCircle (endPoint.x, endPoint.y, 5, 5);
     }
+    ofPopMatrix ();
+    
     // disegno il pistillo del fiore di grandezza in base alla presenza o meno di petali
     if (angles.size () == 0) ofDrawCircle (startingPoint.x, startingPoint.y, 10);
     else ofDrawCircle (startingPoint.x, startingPoint.y, 3);

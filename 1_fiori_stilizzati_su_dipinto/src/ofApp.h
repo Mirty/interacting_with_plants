@@ -43,7 +43,6 @@ private:
     
     //https:\//soundpacks.com/free-sound-packs/ethnic-instrument-samples/
     vector <SampleCollection> sample_collection; // vettore di sample collection
-    vector <ofPoint> punti_terreno; // vettore di punti che disegnano il terreno
     vector <Flower> flowers; // mio vettore che conterrà tutti i fiori creati
     
     ofxPanel panel; // pannello

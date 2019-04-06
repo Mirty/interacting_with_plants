@@ -21,6 +21,11 @@ void Particle::initialize (ofPoint pos) {
 void Particle::update (ofPoint c, int plantValue, int sparsity) {
     /* procedura per l'aggiornamento  */
     
+    // se l'utente setta sparsity a 10, io faccio 10-10=0, quindi t non varia e quindi pos cresce sempre dello stesso tanto.
+    // se l'utente setta sparsity a 0, io faccio 10-0=10, quindi t si aggiorna sempre e ottengo valori sempre diversi di ofSignedNoise, quindi pos varia tanto.
+    
+    // attenzione che a ofSignedNoise non sto passando sparsity ma t, che cambia solo se sparsity != 0, quindi più sparsity è grande + c'è cambiamento, al contrario il movimento sarà costante.
+    
     t.x += sparsity * 0.02; // aggiorno il valore di poco per ottenere da ofSignedNoise un nuovo valore
     t.y += sparsity * 0.02;
     // aggiorno t.x e t.y perché ofSignedNoise per una stessa x restituisce sempre la stessa y.

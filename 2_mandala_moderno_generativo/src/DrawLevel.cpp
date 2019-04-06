@@ -11,7 +11,7 @@
 void DrawLevel::initialize (string type, int dist_from_center, ofColor color) {
     /* procedura per l'inizializzazione del livello di disegno */
     
-    this->type = type; // [line, particle, circle, segment, triangle, rectangle]
+    this->type = type; // [line, particle, circle, segment, triangle, rectangle, rev-triangle]
     this->dist_from_center = dist_from_center;
     this->color = color;
 }

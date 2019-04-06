@@ -24,6 +24,7 @@ class Flower {
     private:
         std::vector <Petal> petals; // ogni fiore i è composto da xi petali
         ofColor colore; // ogni fiore ha un suo colore
+        int last_angle;
     
     public:
         // ------------------------------ proprietà ------------------------------

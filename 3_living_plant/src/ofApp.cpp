@@ -4,7 +4,7 @@
 void ofApp::setup(){
     ofSetFullscreen (true); // imposto la modalità a schermo intero
     ofSeedRandom(0); // imposto il seed per la generazione dei numeri random
-    ofSetVerticalSync (true);
+    //ofSetVerticalSync (true);
     w = ofGetWidth (); // salvo la larghezza della finestra
     h = ofGetHeight (); // salvo l'altezza della finestra
     grabber.initGrabber (w, h); // voglio prendere il video di tutta la finestra
@@ -138,8 +138,8 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    //ofSetColor (255);
-    //bgImage.draw (0, 0); // mostro a video l'img di bg
+    ofSetColor (255);
+    bgImage.draw (0, 0); // mostro a video l'img di bg
     //ofSetColor (0, 200); // setto il colore nero con alpha 200
     //ofDrawRectangle (0, 0, w, h); // disegno un rettangolo sopra l'immagine di sfondo
 

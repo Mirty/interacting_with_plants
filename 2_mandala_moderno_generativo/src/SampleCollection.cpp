@@ -66,12 +66,15 @@ void SampleCollection::play (int plantValue, float volume) {
     
     // prima abbasso il volume di tutti gli altri players
     // ottengo la dimensione del vettore dei player e lo scorro fino alla fine
-    int n_playing = currently_playing.size ();
-    for (int i = 0; i < n_playing; i ++) {
+    for (int i = 0; i < currently_playing.size (); i ++) {
         // abbasso di 0.1 il volume di ogni player
         currently_playing[i].setVolume(currently_playing[i].getVolume() - 0.2);
         // se il volume è a 0, rimuovo questo player dal vettore
-        if (currently_playing[i].getVolume() <= 0) currently_playing.erase(currently_playing.begin() + i);
+        if (currently_playing[i].getVolume() <= 0)  {
+            currently_playing.erase(currently_playing.begin() + i);
+            i-=1;
+        }
+    
     }
     
     // poi faccio riprodurre l'audio a seconda dell'attuale valore di plantValue

@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     // impostazioni grafiche
-    ofSetVerticalSync(true);
+    //ofSetVerticalSync(true);
     //ofBackground(BG_COLOR);
     //ofSetLogLevel(OF_LOG_VERBOSE);
     //ofFill();
@@ -55,7 +55,6 @@ void ofApp::setup(){
     plantValue = -1; // inizializzo a -1 plantValue
     w = ofGetWidth (); // mi salvo la larghezza della finestra
     h = ofGetHeight (); // mi salvo l'altezza della finestra
-    punti_terreno.push_back (ofPoint (0, h)); // creo il 1° punto_terreno
     
     // definisco la x del mio primo fiore
     int x = BORDER + (last_posX + int(ofRandom (180, 340))) % (w - BORDER*2);
@@ -193,7 +192,7 @@ void ofApp::updateFlowers () {
     }
     // aggiorno la variabile che tiene traccia dell'ultimo aggiornamento di fr != 0
     int now = ofGetElapsedTimef ();
-    if (plantValue != 0) last_frequency_time = now;
+    if (plantValue != -1) last_frequency_time = now;
     
     // se non è passato troppo tempo dall'ultimo aggiornamento oppure se non è passato troppo tempo dall'ultima volta che ho creato un fiore, aggiorno l'ultimo fiore
     if (now - last_frequency_time <= secondsFlowerSlider && now - last_flower_creation_time <= secondsFlowerSlider) {
@@ -232,7 +231,7 @@ void ofApp::updateWatercolor () {
     // ottengo il colore dell'immagine nelle coordinate x, y
     ofColor color = ofColor (0);
     // salvo il colore dell'img di bg in pos x,y
-    if (x * y >= 0 && x < bg_w && y < bg_h) color = bg_img.getColor(x, y);
+    if (x >= 0 && y >= 0 && x < bg_w && y < bg_h) color = bg_img.getColor(x, y);
     
     
     // calcolo il punto in cui dare una pennellata, ascissa e ordinata
@@ -242,6 +241,7 @@ void ofApp::updateWatercolor () {
     
     // aggiorno la pennellata
     inkSim.update(bEvaporToDisapper);
+    // dalla documentazione: The color is converted from the default RGB to an HSB color space and the resulting hue angle is returned.
     inkSim.stroke(&brush, x, y, getInkColor(color.getHueAngle(), 255, 50));
 }
 
@@ -383,6 +383,7 @@ string ofApp::ofxTrimStringRight (string str) {
     size_t endpos = str.find_last_not_of(" \t\r\n");
     
     // se endpos non indica la fine della stringa tolgo tutto ciò che è alla sua destra
+    // faccio questo confronto perché se find_last_not_of() non trova niente, mi restituisce string::npos (ovvero -1)
     if (string::npos != endpos) return str.substr(0, endpos + 1);
     // altrimenti vuol dire che non ho caratteri speciali e posso restituire str così com'è
     else return str;
@@ -409,18 +410,17 @@ string ofApp::ofxTrimStringLeft(string str) {
 //--------------------------------------------------------------
 string ofApp::ofxTrimString (string str) {
     // taglio i caratteri speciali da dx e da sx
-    return ofxTrimStringLeft(ofxTrimStringRight(str));
+    //return ofxTrimStringLeft(ofxTrimStringRight(str));
     
-    // versione ridotta mia
-    /*
-     std::string delimiters [] {" ", "\n", "\t", "\r"};
-     string my_string = "";
-     for (std::string delimiter : delimiters) {
-     my_string = my_string.substr(0, my_string.find(delimiter));
-     }
-     //std::string token = s.substr(0, s.find(delimiter)); // token is "scott"
-     return my_string;
-     */
+    // versione ridotta
+    std::string delimiters [] {" ", "\n", "\t", "\r"};
+    string my_string = str;
+    for (std::string delimiter : delimiters) {
+        my_string = str.substr(0, str.find(delimiter));
+    }
+    //cout << ofxTrimStringLeft(ofxTrimStringRight(str)) << " vs " << my_string << endl;
+    return my_string;
+     
 }
 
 //--------------------------------------------------------------
@@ -432,9 +432,6 @@ void ofApp::keyPressed  (int key){
         img.save(std::to_string(ofGetElapsedTimef()) + ".png");
     }
     else if (key == 'c') {
-        // ogni volta che premo la barra spaziatrice ricomincio a disegnare il terreno da capo
-        punti_terreno.clear();
-        punti_terreno.push_back (ofPoint (0, h)); // creo il 1° punto_terreno
         flowers.clear();
         addFlower(last_posX);
         updateBg ();
